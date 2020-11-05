@@ -4,6 +4,12 @@
  */
 module.exports = class Page {
   /**
+   * @description Getter functions for page elements
+   */
+  get acceptCookiesButton() {
+    return browser.$('.accept-cookies-button');
+  }
+  /**
    * @description Opens a sub page of the page
    * @param path path of the sub page (e.g. /path/to/page.html)
    */
@@ -14,7 +20,8 @@ module.exports = class Page {
    * @description Handles the accept cookies modal screen
    */
   acceptCookies() {
-    browser.$('.accept-cookies-button').click();
+    this.acceptCookiesButton.click();
+    expect(this.acceptCookiesButton).not.toBeDisplayed();
   }
   /**
    * @description Reloads the page
@@ -42,5 +49,12 @@ module.exports = class Page {
    */
   shouldNotHaveElement(selector) {
     expect(selector).not.toExist();
+  }
+  /**
+   * @description Exptected amount of elements on page
+   * @ar
+   */
+  shouldHaveAmountOfElements(selector, length) {
+    expect(selector).toHaveLength(length);
   }
 };

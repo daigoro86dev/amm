@@ -19,6 +19,9 @@ class CampaignPage extends Page {
   get learnMoreAboutInovationAnchor() {
     return $('[data-autoid="imageWithText:primaryCta"]');
   }
+  get testimonialVideoPlayButton() {
+    return $$('[data-autoid="videoTestimonials:container"] svg');
+  }
   /**
    * @override
    */
@@ -29,6 +32,7 @@ class CampaignPage extends Page {
    * @description Starts playback of campaign overall story video
    */
   watchTheStory() {
+    this.watchTheStoryBtn.waitForDisplayed();
     this.watchTheStoryBtn.click();
   }
   /**
