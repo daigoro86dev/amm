@@ -6,8 +6,9 @@
   "author": "Bruno Maio <daigoro86dev@gmail.com>",
   "scripts": {
     "wdio:config": "wdio config -y",
-    "e2e": "wdio wdio.conf.js",
-    "report": "marge Results/wdio-ma-merged.json --inline=true --reportTitle 'A Million More Campaign Test Report'"
+    "e2e": "rimraf Results && wdio wdio.conf.js",
+    "report": "rimraf mochawesome-report && marge Results/wdio-ma-merged.json --inline=true --reportTitle 'A Million More Campaign Test Report'",
+    "serve-report": "live-server --quiet ./mochawesome-report/wdio-ma-merged.html"
   },
   "devDependencies": {
     "@wdio/cli": "^6.7.2",
@@ -17,6 +18,7 @@
     "@wdio/sync": "^6.7.2",
     "chromedriver": "^86.0.0",
     "geckodriver": "^1.20.0",
+    "live-server": "^1.2.1",
     "mochawesome-report-generator": "3.1.5",
     "wdio-chromedriver-service": "^6.0.4",
     "wdio-geckodriver-service": "^1.1.0",

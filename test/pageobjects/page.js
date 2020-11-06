@@ -20,9 +20,10 @@ module.exports = class Page {
    * @description Handles the accept cookies modal screen
    */
   acceptCookies() {
-    expect(this.acceptCookiesButton).toBeDisplayed();
-    this.acceptCookiesButton.click();
-    expect(this.acceptCookiesButton).not.toBeDisplayed();
+    if (this.acceptCookiesButton.isExisting()) {
+      this.acceptCookiesButton.click();
+      expect(this.acceptCookiesButton).not.toBeDisplayed();
+    }
   }
   /**
    * @description Reloads the page
@@ -52,8 +53,9 @@ module.exports = class Page {
     expect(selector).not.toExist();
   }
   /**
-   * @description Exptected amount of elements on page
-   * @ar
+   * @description Exptected amount of elements on page for a given selector
+   * @argument {String} selector
+   * @argument {Number} length
    */
   shouldHaveAmountOfElements(selector, length) {
     expect(selector).toHaveLength(length);
