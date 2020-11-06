@@ -4,7 +4,7 @@
  */
 module.exports = class Page {
   /**
-   * @description Getter functions for page elements
+   * @description Getter functions for UI mapping of generic page elements
    */
   get acceptCookiesButton() {
     return browser.$('.accept-cookies-button');
@@ -20,6 +20,7 @@ module.exports = class Page {
    * @description Handles the accept cookies modal screen
    */
   acceptCookies() {
+    expect(this.acceptCookiesButton).toBeDisplayed();
     this.acceptCookiesButton.click();
     expect(this.acceptCookiesButton).not.toBeDisplayed();
   }

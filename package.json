@@ -6,9 +6,9 @@
   "author": "Bruno Maio <daigoro86dev@gmail.com>",
   "scripts": {
     "wdio:config": "npx wdio config -y",
-    "wdio:start": "npx wdio wdio.conf.js",
-    "wdio:help": "npx wdio --help",
-    "wdio:run": "npx wdio"
+    "e2e": "npx wdio wdio.conf.js",
+    "report": "allure generate _results_/allure-raw -o _results_/allure --clean",
+    "postreport": "open http://localhost:8081/index.html && autoreload-server _results_/allure 8081"
   },
   "devDependencies": {
     "@wdio/cli": "^6.7.2",
