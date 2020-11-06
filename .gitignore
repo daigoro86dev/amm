@@ -108,3 +108,7 @@ Results
 
 # Mochawesome merged report
 mochawesome-report
+
+# Rerun service logs
+Reruns
+rerun.sh

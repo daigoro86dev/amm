@@ -1,3 +1,5 @@
+const RerunService = require('wdio-rerun-service');
+
 const CampaignPage = require('./test/pageobjects/campaing.page');
 
 exports.config = {
@@ -41,14 +43,14 @@ exports.config = {
       },
     },
     // Firefox
-    {
-      maxInstances: 5,
-      browserName: 'firefox',
-      acceptInsecureCerts: true,
-      'moz:firefoxOptions': {
-        args: ['-headless', '-hide-scrollbars', '-disable-gpu'],
-      },
-    },
+    // {
+    //   maxInstances: 5,
+    //   browserName: 'firefox',
+    //   acceptInsecureCerts: true,
+    //   'moz:firefoxOptions': {
+    //     args: ['-headless', '-hide-scrollbars', '-disable-gpu'],
+    //   },
+    // },
   ],
   //
   // ===================
@@ -76,7 +78,16 @@ exports.config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ['chromedriver', 'geckodriver'],
+  services: [
+    'chromedriver',
+    'geckodriver',
+    [
+      RerunService,
+      {
+        rerunDataDir: './Reruns',
+      },
+    ],
+  ],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber

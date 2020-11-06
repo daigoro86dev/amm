@@ -7,6 +7,7 @@ describe('Campain Page - Spec 7', () => {
       expect(CampaignPage.getTestimonialVideoByIndex(indexValue)).toHaveAttr(
         'controls'
       );
+      browser.pause(500);
       expect(
         CampaignPage.getTestimonialVideoByIndex(indexValue).getProperty(
           'currentTime'

@@ -290,6 +290,16 @@
     async-exit-hook "^2.0.1"
     stream-buffers "^3.0.2"
 
+"@wdio/logger@6.0.0-alpha.0":
+  version "6.0.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@wdio/logger/-/logger-6.0.0-alpha.0.tgz#2159aa078e372d08880076e7be088c66eb906757"
+  integrity sha512-VqIKYDnuKp1rjdvN7LsHXNOE43MUfUUve1R0LHGw5zzarH7MauuAN09kJj7MKpGO9TGKDLScze/uE1TFjD9/pQ==
+  dependencies:
+    chalk "^3.0.0"
+    loglevel "^1.6.0"
+    loglevel-plugin-prefix "^0.8.4"
+    strip-ansi "^6.0.0"
+
 "@wdio/logger@6.6.0":
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/@wdio/logger/-/logger-6.6.0.tgz#69375d6cf373ee8e7db7cd05085e6a325fccfdf7"
@@ -810,6 +820,14 @@ chalk@^2.0.0, chalk@^2.3.0, chalk@^2.4.2:
     ansi-styles "^3.2.1"
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
+
+chalk@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-3.0.0.tgz#3f73c2bf526591f574cc492c51e2456349f844e4"
+  integrity sha512-4D3B6Wf41KOYRFdszmDqMCGq5VV/uMAB273JILmO+3jAlh8X4qDtdtgCR3fxtbLEMzSx22QdhnDcJvu2u1fVwg==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
 
 chalk@^4.0.0, chalk@^4.1.0:
   version "4.1.0"
@@ -4134,7 +4152,7 @@ uuid@^3.0.0, uuid@^3.0.1:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
-uuid@^8.0.0:
+uuid@^8.0.0, uuid@^8.3.0:
   version "8.3.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.1.tgz#2ba2e6ca000da60fce5a196954ab241131e05a31"
   integrity sha512-FOmRr+FmWEIG8uhZv6C2bTgEVXsHk08kE7mPlrBbEe+c3r9pjceVPgupIfNIhc4yx55H69OXANrUaSuu9eInKg==
@@ -4187,6 +4205,15 @@ wdio-mochawesome-reporter@3.2.0:
     "@wdio/reporter" "^5.7.8"
     strip-ansi "^5.2.0"
     uuid "^3.0.1"
+
+wdio-rerun-service@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/wdio-rerun-service/-/wdio-rerun-service-0.0.10.tgz#127ec4975e8fb186e8b9475954b5cfe0779209dc"
+  integrity sha512-oc3AssQHxKDsO42QVQ9W+n2h58jzKejhkkMPXf95wVtyGm9nIoiPj3ZwQLo9FCl9GI9gHgQXRq/vxKdq15SDHQ==
+  dependencies:
+    "@wdio/logger" "6.0.0-alpha.0"
+    minimist "^1.2.5"
+    uuid "^8.3.0"
 
 webdriver@6.7.1:
   version "6.7.1"
