@@ -22,6 +22,7 @@
     "mochawesome-report-generator": "3.1.5",
     "wdio-chromedriver-service": "^6.0.4",
     "wdio-geckodriver-service": "^1.1.0",
+    "wdio-image-comparison-service": "^1.14.0",
     "wdio-mochawesome-reporter": "3.2.0",
     "wdio-rerun-service": "^0.0.10"
   },

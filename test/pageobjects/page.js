@@ -22,8 +22,8 @@ module.exports = class Page {
   acceptCookies() {
     if (this.acceptCookiesButton.isExisting()) {
       this.acceptCookiesButton.click();
-      expect(this.acceptCookiesButton).not.toBeDisplayed();
     }
+    expect(this.acceptCookiesButton).not.toBeDisplayed();
   }
   /**
    * @description Reloads the page

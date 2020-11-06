@@ -112,3 +112,9 @@ mochawesome-report
 # Rerun service logs
 Reruns
 rerun.sh
+
+# .tmp
+.tmp
+
+# Visual regression images folder
+ImgComparison

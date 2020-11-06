@@ -1,3 +1,5 @@
+const { join } = require('path');
+
 const RerunService = require('wdio-rerun-service');
 
 const CampaignPage = require('./test/pageobjects/campaing.page');
@@ -43,14 +45,14 @@ exports.config = {
       },
     },
     // Firefox
-    // {
-    //   maxInstances: 5,
-    //   browserName: 'firefox',
-    //   acceptInsecureCerts: true,
-    //   'moz:firefoxOptions': {
-    //     args: ['-headless', '-hide-scrollbars', '-disable-gpu'],
-    //   },
-    // },
+    {
+      maxInstances: 5,
+      browserName: 'firefox',
+      acceptInsecureCerts: true,
+      'moz:firefoxOptions': {
+        args: ['-headless', '-hide-scrollbars', '-disable-gpu'],
+      },
+    },
   ],
   //
   // ===================
@@ -85,6 +87,32 @@ exports.config = {
       RerunService,
       {
         rerunDataDir: './Reruns',
+      },
+    ],
+    [
+      'image-comparison',
+      {
+        baselineFolder: join(process.cwd(), './ImgComparison'),
+        formatImageName: '{tag}-{logName}-{width}x{height}',
+        screenshotPath: join(process.cwd(), '.tmp/'),
+        savePerInstance: true,
+        autoSaveBaseline: true,
+        blockOutStatusBar: true,
+        blockOutToolBar: true,
+        // NOTE: When you are testing a hybrid app please use this setting
+        isHybridApp: false,
+        // Options for the tabbing image
+        tabbableOptions: {
+          circle: {
+            size: 18,
+            fontSize: 18,
+            // ...
+          },
+          line: {
+            color: '#ff221a',
+            width: 3,
+          },
+        },
       },
     ],
   ],
