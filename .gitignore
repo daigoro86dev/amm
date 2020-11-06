@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Mochawesome report results
+Results
+
+# Mochawesome merged report
+mochawesome-report

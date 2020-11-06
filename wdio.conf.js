@@ -11,10 +11,6 @@ exports.config = {
   // ==================
   // Specify Test Files
   // ==================
-  // Define which test specs should run. The pattern is relative to the directory
-  // from which `wdio` was called. Notice that, if you are calling `wdio` from an
-  // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
-  // directory is where your package.json resides, so `wdio` will be called from there.
   //
   specs: ['./test/specs/**/*.js'],
   // Patterns to exclude.
@@ -27,6 +23,7 @@ exports.config = {
   // ============
   maxInstances: 10,
   capabilities: [
+    // Chrome
     {
       maxInstances: 5,
       browserName: 'chrome',
@@ -41,6 +38,7 @@ exports.config = {
         ],
       },
     },
+    // Firefox
     {
       maxInstances: 5,
       browserName: 'firefox',
@@ -58,29 +56,8 @@ exports.config = {
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
   logLevel: 'info',
-  //
-  // Set specific log levels per logger
-  // loggers:
-  // - webdriver, webdriverio
-  // - @wdio/applitools-service, @wdio/browserstack-service, @wdio/devtools-service, @wdio/sauce-service
-  // - @wdio/mocha-framework, @wdio/jasmine-framework
-  // - @wdio/local-runner
-  // - @wdio/sumologic-reporter
-  // - @wdio/cli, @wdio/config, @wdio/sync, @wdio/utils
-  // Level of logging verbosity: trace | debug | info | warn | error | silent
-  // logLevels: {
-  //     webdriver: 'info',
-  //     '@wdio/applitools-service': 'info'
-  // },
-  //
-  // If you only want to run your tests until a specific amount of tests have failed use
-  // bail (default is 0 - don't bail, run all tests).
   bail: 0,
-  //
-  // Set a base URL in order to shorten url command calls. If your `url` parameter starts
-  // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
-  // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
-  // gets prepended directly.
+  // Base url
   baseUrl: 'https://www.volvocars.com',
   //
   // Default timeout for all waitFor* commands.
@@ -106,20 +83,17 @@ exports.config = {
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
   framework: 'mocha',
-  //
-  // The number of times to retry the entire specfile when it fails as a whole
-  // specFileRetries: 1,
-  //
-  // Delay in seconds between the spec file retry attempts
-  // specFileRetriesDelay: 0,
-  //
-  // Whether or not retried specfiles should be retried immediately or deferred to the end of the queue
-  // specFileRetriesDeferred: false,
-  //
-  // Test reporter for stdout.
-  // The only one supported by default is 'dot'
-  // see also: https://webdriver.io/docs/dot-reporter.html
-  reporters: ['spec'],
+  reporters: [
+    [
+      'mochawesome',
+      {
+        outputDir: './Results',
+        outputFileFormat: function (opts) {
+          return `results-${opts.cid}.json`;
+        },
+      },
+    ],
+  ],
 
   //
   // Options to be passed to Mocha.
@@ -247,8 +221,10 @@ exports.config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
-  // onComplete: function(exitCode, config, capabilities, results) {
-  // },
+  onComplete: function (exitCode, config, capabilities, results) {
+    const mergeResults = require('wdio-mochawesome-reporter/mergeResults');
+    mergeResults('./Results', 'results-*');
+  },
   /**
    * Gets executed when a refresh happens.
    * @param {String} oldSessionId session ID of the old session

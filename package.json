@@ -5,10 +5,9 @@
   "main": "index.js",
   "author": "Bruno Maio <daigoro86dev@gmail.com>",
   "scripts": {
-    "wdio:config": "npx wdio config -y",
-    "e2e": "npx wdio wdio.conf.js",
-    "report": "allure generate _results_/allure-raw -o _results_/allure --clean",
-    "postreport": "open http://localhost:8081/index.html && autoreload-server _results_/allure 8081"
+    "wdio:config": "wdio config -y",
+    "e2e": "wdio wdio.conf.js",
+    "report": "marge Results/wdio-ma-merged.json --inline=true --reportTitle 'A Million More Campaign Test Report'"
   },
   "devDependencies": {
     "@wdio/cli": "^6.7.2",
@@ -18,8 +17,10 @@
     "@wdio/sync": "^6.7.2",
     "chromedriver": "^86.0.0",
     "geckodriver": "^1.20.0",
+    "mochawesome-report-generator": "3.1.5",
     "wdio-chromedriver-service": "^6.0.4",
-    "wdio-geckodriver-service": "^1.1.0"
+    "wdio-geckodriver-service": "^1.1.0",
+    "wdio-mochawesome-reporter": "3.2.0"
   },
   "license": "MIT"
 }

@@ -23,7 +23,7 @@ describe('Campain Page - Testimonial Videos', () => {
     CampaignPage.watchTheStoryBtn.scrollIntoView();
     expect(
       CampaignPage.getTestimonialVideoByIndex(0).getProperty('currentTime')
-    ).toBeLessThanOrEqual(currentTime + 0.5);
+    ).toBeLessThanOrEqual(currentTime + 1);
   });
   it('should play each of the testimonial videos', () => {
     [...Array(4).keys()].forEach((indexValue) => {
