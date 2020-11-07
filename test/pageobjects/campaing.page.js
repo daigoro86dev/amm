@@ -10,6 +10,15 @@ class CampaignPage extends Page {
   get autoPlayVideo() {
     return browser.$('[data-autoid="Video-1"] video');
   }
+  get campaignTextStatement() {
+    return browser.$('[data-autoid="TextStatement-1"]');
+  }
+  get videoTestimonials() {
+    return browser.$('[data-autoid="VideoTestimonials-1"]');
+  }
+  get decadesOfInovationTitle() {
+    return browser.$('[data-autoid="imageWithText:title"]');
+  }
   get topVideoContainer() {
     return browser.$('[data-autoid="Video-1"]');
   }

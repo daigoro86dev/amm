@@ -27,11 +27,10 @@ exports.config = {
   // ============
   // Capabilities
   // ============
-  maxInstances: 10,
   capabilities: [
     // Chrome
     {
-      maxInstances: 5,
+      maxInstances: 2,
       browserName: 'chrome',
       acceptInsecureCerts: true,
       'goog:chromeOptions': {
@@ -45,14 +44,14 @@ exports.config = {
       },
     },
     // Firefox
-    {
-      maxInstances: 5,
-      browserName: 'firefox',
-      acceptInsecureCerts: true,
-      'moz:firefoxOptions': {
-        args: ['-headless', '-hide-scrollbars', '-disable-gpu'],
-      },
-    },
+    // {
+    //   maxInstances: 2,
+    //   browserName: 'firefox',
+    //   acceptInsecureCerts: true,
+    //   'moz:firefoxOptions': {
+    //     args: ['-headless', '-disable-gpu'],
+    //   },
+    // },
   ],
   //
   // ===================

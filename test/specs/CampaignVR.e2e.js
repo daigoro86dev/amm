@@ -2,7 +2,14 @@ const CampaignPage = require('../pageobjects/campaing.page');
 
 describe('Campain Page - Visual Regression', () => {
   it('should save some screenshots', () => {
-    CampaignPage.learnMoreAboutCarSafetyAnchor.scrollIntoView();
+    // Page section screens
+    CampaignPage.videoTestimonials.scrollIntoView();
+    expect(CampaignPage.videoTestimonials).toBeVisible();
+    browser.saveScreen('videoTestimonialsScreen');
+    CampaignPage.decadesOfInovationTitle.scrollIntoView();
+    expect(CampaignPage.decadesOfInovationTitle).toBeVisible();
+    browser.saveScreen('decadesOfInovationScreen');
+    // Snapshot UI Elements
     browser.saveElement(CampaignPage.autoPlayVideo, 'autoPlayVideo');
     browser.saveElement(CampaignPage.watchTheStoryBtn, 'watchTheStoryBtn');
     browser.saveElement(
@@ -14,7 +21,11 @@ describe('Campain Page - Visual Regression', () => {
       'learnMoreAboutCarSafetyAnchor'
     );
   });
-  it('should do visual regression with the baseline', () => {
+  it('should do visual regression with the baseline screenshots', () => {
+    // Page section screens
+    expect(browser.checkScreen('videoTestimonialsScreen')).toEqual(0);
+    expect(browser.checkScreen('decadesOfInovationScreen')).toEqual(0);
+    // UI Elements
     expect(
       browser.checkElement(CampaignPage.autoPlayVideo, 'autoPlayVideo')
     ).toEqual(0);
