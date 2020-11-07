@@ -38,6 +38,7 @@ This suite of automated tests seek to verify and validate function and non-funct
 
 - npm i - install dependencies
 - npm test - run tests
+- npm run clean - cleans up the environment removing automatically generated folders and files
 - npm run report - generate merged report in html format
 - npm run serve-report - serves report @ localhost:8080 (both generated locally or in docker container)
 
