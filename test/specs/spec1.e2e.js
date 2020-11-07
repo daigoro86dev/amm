@@ -10,4 +10,13 @@ describe('Campaign Page - Spec 1', () => {
       CampaignPage.learnMoreAboutCarSafetyAnchor
     ).toHaveTextContaining('Learn more about car safety', { ignoreCase: true });
   });
+  it('should have link to safety heritage page', () => {
+    expect(CampaignPage.learnMoreAboutInovationAnchor).toBeVisible();
+    expect(CampaignPage.learnMoreAboutInovationAnchor).toHaveHrefContaining(
+      '/safety-heritage'
+    );
+    expect(
+      CampaignPage.learnMoreAboutInovationAnchor
+    ).toHaveTextContaining('Learn more', { ignoreCase: true });
+  });
 });
