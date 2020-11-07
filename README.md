@@ -70,7 +70,7 @@ This suite of automated tests seek to verify and validate function and non-funct
 
 - Specs 1 is the simpler test suite, focused on the the 2 links ("Learn more about car safety" and "Learn more")
 - Specs 2 - 5 are the most complex test suite, focused the behaviour of the video playbacks. The focus here if the boundary value analysis of the currentTime property of the video element. In this cases the test either asserts over a value above 0 as the baseline to check if the video playback executes. The other case regards the testimonial videos stopping execution if the user scrolls out of view, and in this case the baseline occurs at the moment before the video is scrolled out of view with a boundary of 1 additional second as a reasonable interval.
-- Specs 7 and 8 do visual regression - implemented through the use of wdio-image-comparison-service. I excluded the top of the page given the video running on loop but I assume this could have been included given a a certain boundary.
+- Spec 6 does visual regression - implemented through the use of wdio-image-comparison-service. I excluded the top of the page given the video running on loop but I assume this could have been included given a a certain boundary.
 
 ## Alternatives
 
