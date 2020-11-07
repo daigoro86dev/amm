@@ -36,10 +36,10 @@ This suite of automated tests seek to verify and validate function and non-funct
 
 ## Local setup
 
-npm i - install dependencies
-npm test - run tests
-npm run report - generate merged report in html format
-npm run serve-report - serves report @ localhost:8080 (both generated locally or in docker container)
+- npm i - install dependencies
+- npm test - run tests
+- npm run report - generate merged report in html format
+- npm run serve-report - serves report @ localhost:8080 (both generated locally or in docker container)
 
 ## Webdriverio configuration
 
@@ -47,7 +47,8 @@ npm run serve-report - serves report @ localhost:8080 (both generated locally or
 
 ## Docker setup
 
-docker-compose up - sets up container, executes test suite and generate report, with the first run taking longer given the container setup. The container CMD executes the entrypoint.sh which starts by cleaning up the environment, execute the tests suite and finally merges the report into a single html file.
+- docker-compose up - sets up container, executes test suite and generate report, with the first run taking longer given the container setup.
+- The container CMD executes the entrypoint.sh which starts by cleaning up the environment, execute the tests suite and finally merges the report into a single html file.
 
 ## Implementation
 
