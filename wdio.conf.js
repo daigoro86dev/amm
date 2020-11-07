@@ -44,14 +44,14 @@ exports.config = {
       },
     },
     // Firefox
-    // {
-    //   maxInstances: 2,
-    //   browserName: 'firefox',
-    //   acceptInsecureCerts: true,
-    //   'moz:firefoxOptions': {
-    //     args: ['-headless', '-disable-gpu'],
-    //   },
-    // },
+    {
+      maxInstances: 2,
+      browserName: 'firefox',
+      acceptInsecureCerts: true,
+      'moz:firefoxOptions': {
+        args: ['-headless', '-disable-gpu', '-disable-sandbox'],
+      },
+    },
   ],
   //
   // ===================
