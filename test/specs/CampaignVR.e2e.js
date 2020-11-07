@@ -1,10 +1,8 @@
 const CampaignPage = require('../pageobjects/campaing.page');
 
-describe('Campain Page - Spec 8', () => {
-  it('should do visual regression testing of the campaign page', () => {
+describe('Campain Page - Visual Regression', () => {
+  it('should save some screenshots', () => {
     CampaignPage.learnMoreAboutCarSafetyAnchor.scrollIntoView();
-    expect(CampaignPage.autoPlayVideo).not.toBeVisibleInViewport();
-    browser.saveScreen('CampaignPageSafetyFeatures');
     browser.saveElement(CampaignPage.autoPlayVideo, 'autoPlayVideo');
     browser.saveElement(CampaignPage.watchTheStoryBtn, 'watchTheStoryBtn');
     browser.saveElement(
@@ -15,7 +13,8 @@ describe('Campain Page - Spec 8', () => {
       CampaignPage.learnMoreAboutInovationAnchor,
       'learnMoreAboutCarSafetyAnchor'
     );
-    expect(browser.checkScreen('CampaignPage')).toEqual(0);
+  });
+  it('should do visual regression with the baseline', () => {
     expect(
       browser.checkElement(CampaignPage.autoPlayVideo, 'autoPlayVideo')
     ).toEqual(0);

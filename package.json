@@ -6,11 +6,12 @@
   "author": "Bruno Maio <daigoro86dev@gmail.com>",
   "scripts": {
     "wdio:config": "wdio config -y",
-    "e2e": "rimraf Results && wdio wdio.conf.js",
-    "report": "rimraf mochawesome-report && marge Results/wdio-ma-merged.json --inline=true --reportTitle 'A Million More Campaign Test Report'",
+    "test": "wdio wdio.conf.js",
+    "clean": "rimraf mochawesome-report Results",
+    "report": "marge Results/wdio-ma-merged.json --inline=true --reportTitle 'A Million More Campaign Test Report'",
     "serve-report": "live-server --quiet ./mochawesome-report/wdio-ma-merged.html"
   },
-  "devDependencies": {
+  "dependencies": {
     "@wdio/cli": "^6.7.2",
     "@wdio/local-runner": "^6.7.2",
     "@wdio/mocha-framework": "^6.7.0",
@@ -20,6 +21,7 @@
     "geckodriver": "^1.20.0",
     "live-server": "^1.2.1",
     "mochawesome-report-generator": "3.1.5",
+    "rimraf": "^3.0.2",
     "wdio-chromedriver-service": "^6.0.4",
     "wdio-geckodriver-service": "^1.1.0",
     "wdio-image-comparison-service": "^1.14.0",

@@ -10,6 +10,9 @@ class CampaignPage extends Page {
   get autoPlayVideo() {
     return browser.$('[data-autoid="Video-1"] video');
   }
+  get topVideoContainer() {
+    return browser.$('[data-autoid="Video-1"]');
+  }
   get watchTheStoryBtn() {
     return $('button=watch the story');
   }
