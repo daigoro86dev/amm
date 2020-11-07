@@ -44,7 +44,11 @@ This suite of automated tests seek to verify and validate function and non-funct
 
 ## Webdriverio configuration
 
-- Some options reflect my hardware limitations, specifically the number of parallel tests per browser (2). Specs 2 - 5 are also made up of a single test, and this was due to the fact that handling the video playback proved to be challenging when sharing the same browser instances with results improving once I moved each test to its own file. I picked mocha-awesome as the reporter given how familiar I was with it, being mostly a personal preference. The rerun service requires wdio to be globally installed. I also kept the visual regression tests to a minimum since performance wise it was a bit taxing on my hardware.
+- Some options reflect my hardware limitations, specifically the number of parallel tests per browser (2).
+- Specs 2 - 5 are also made up of a single test, and this was due to the fact that handling the video playback proved to be challenging when sharing the same browser instances with results improving once I moved each test to its own file.
+- I picked mocha-awesome as the reporter given how familiar I was with it, being mostly a personal preference.
+- The rerun service requires wdio to be globally installed.
+- I also kept the visual regression tests to a minimum since performance wise it was a bit taxing on my hardware.
 
 ## Docker setup
 
