@@ -5,7 +5,7 @@ const Page = require('./page');
  */
 class CampaignPage extends Page {
   /**
-   * @description Getter functions for UI mapping of campaign page specificelements
+   * @description Getter functions for UI mapping of campaign page specific elements
    */
   get autoPlayVideo() {
     return browser.$('[data-autoid="Video-1"] video');
