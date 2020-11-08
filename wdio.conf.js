@@ -9,9 +9,6 @@ exports.config = {
   // ====================
   // Runner Configuration
   // ====================
-  //
-  // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
-  // on a remote machine).
   runner: 'local',
   //
   // ==================
@@ -57,10 +54,7 @@ exports.config = {
   // ===================
   // Test Configurations
   // ===================
-  // Define all options that are relevant for the WebdriverIO instance here
-  //
-  // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: 'info',
+  logLevel: 'error',
   bail: 0,
   // Base url
   baseUrl: 'https://www.volvocars.com',
@@ -86,6 +80,7 @@ exports.config = {
       RerunService,
       {
         rerunDataDir: './Reruns',
+        commandPrefix: 'PATH=$(npm bin):$PATH',
       },
     ],
     [
@@ -115,13 +110,6 @@ exports.config = {
       },
     ],
   ],
-
-  // Framework you want to run your specs with.
-  // The following are supported: Mocha, Jasmine, and Cucumber
-  // see also: https://webdriver.io/docs/frameworks.html
-  //
-  // Make sure you have the wdio adapter package for the specific framework installed
-  // before running any tests.
   framework: 'mocha',
   reporters: [
     [
@@ -129,15 +117,11 @@ exports.config = {
       {
         outputDir: './Results',
         outputFileFormat: function (opts) {
-          return `results-${opts.cid}.json`;
+          return `results-${opts.cid}.${opts.capabilities.browserName}.json`;
         },
       },
     ],
   ],
-
-  //
-  // Options to be passed to Mocha.
-  // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
     timeout: 60000,
@@ -264,8 +248,12 @@ exports.config = {
    * @param {<Object>} results object containing test results
    */
   onComplete: function (exitCode, config, capabilities, results) {
-    const mergeResults = require('wdio-mochawesome-reporter/mergeResults');
-    mergeResults('./Results', 'results-*');
+    // Merge json reports into a single json file for bulk test execution
+    // npm test command
+    if (process.argv.length == 3) {
+      const mergeResults = require('wdio-mochawesome-reporter/mergeResults');
+      mergeResults('./Results', 'results-*');
+    }
   },
   /**
    * Gets executed when a refresh happens.

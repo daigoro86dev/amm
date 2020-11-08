@@ -5,7 +5,7 @@ Automated tests for the A Million More campaign @ https://www.volvocars.com/intl
 ## Table of contents
 
 - [General info](#general-info)
-- [Technologies](#technologies)
+- [Dependencies](#dependencies)
 - [Local setup](#local-setup)
 - [Webdriverio configuration](#webdriverio-configuration)
 - [Docker setup](#docker-setup)
@@ -17,7 +17,7 @@ Automated tests for the A Million More campaign @ https://www.volvocars.com/intl
 
 This suite of automated tests seek to verify and validate function and non-functional requirements of the campaign page. I focused on the links which lead to other pages, the execution and behaviour of the testimonial videos and also added some visual regression tests. Currently the test suits run in parallel both on chrome and firefox. This project is also configured to run within a docker container.
 
-## Technologies
+## Dependencies
 
 - @wdio/cli - version ^6.7.2
 - @wdio/local-runner - version ^6.7.2
@@ -47,7 +47,7 @@ This suite of automated tests seek to verify and validate function and non-funct
 - Some options reflect my hardware limitations, specifically the number of parallel tests per browser (2).
 - Specs 2 - 5 are also made up of a single test, and this was due to the fact that handling the video playback proved to be challenging when sharing the same browser instances with results improving once I moved each test to its own file.
 - I picked mocha-awesome as the reporter given how familiar I was with it, being mostly a personal preference.
-- The rerun service requires wdio to be globally installed.
+- The rerun service requires wdio to be globally installed or added to path. On Unix systems I adopted the later, by adding as the command prefix in RerunService configuration
 - I also kept the visual regression tests to a minimum since performance wise it was a bit taxing on my hardware.
 
 ## Docker setup

@@ -7,7 +7,7 @@
   "scripts": {
     "wdio:config": "wdio config -y",
     "test": "wdio wdio.conf.js",
-    "clean": "rimraf mochawesome-report Results ImgComparison Reruns .tmp",
+    "clean": "rimraf mochawesome-report Results ImgComparison Reruns .tmp rerun.sh",
     "report": "marge Results/wdio-ma-merged.json --inline=true --reportTitle 'A Million More Campaign Test Report'",
     "serve-report": "live-server --quiet ./mochawesome-report/wdio-ma-merged.html"
   },
