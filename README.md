@@ -19,6 +19,8 @@ This suite of automated tests seek to verify and validate function and non-funct
 
 ## Dependencies
 
+- Node v10+
+- Docker & Docker Compose
 - @wdio/cli - version ^6.7.2
 - @wdio/local-runner - version ^6.7.2
 - @wdio/mocha-framework - version ^6.7.0,
